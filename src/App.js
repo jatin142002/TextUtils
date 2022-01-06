@@ -1,10 +1,8 @@
 import "./App.css";
 import Navbar from "./Components/Navbar";
 import TextForm from "./Components/TextForm";
-import About from "./Components/About";
 import React, { useState } from "react";
 import Alert from "./Components/Alert";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("dark");
@@ -42,7 +40,7 @@ function App() {
   }
 
   return (
-    <Router>
+    <>
       <Navbar
         title="TEXTUTILS"
         mode={mode}
@@ -51,21 +49,13 @@ function App() {
       />
       <Alert alert={alert} />
       <div className="container my-3">
-        <Switch>
-          <Route path="/about">
-            <About mode={mode}/>
-          </Route>
-
-          <Route path="/">
-            <TextForm
-              heading="Drop/Enter your text here to analyze"
-              mode={mode}
-              showAlert={showAlert}
-            />
-          </Route>
-        </Switch>
+        <TextForm
+          heading="Drop/Enter your text here to analyze"
+          mode={mode}
+          showAlert={showAlert}
+        />
       </div>
-    </Router>
+    </>
   );
 }
 
