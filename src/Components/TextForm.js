@@ -115,10 +115,10 @@ export default function TextForm(props) {
           <h2>Your Text Summary</h2>
           <p>
             {/* <i>{text.length}</i> characters and {words()} words */}
-            <i>{text.split(" ").filter((element)=>{return element.length!==0}).length}</i> words and <i>{text.length}</i> characters
+            <i>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length}</i> words and <i>{text.length}</i> characters
           </p>
           <p>
-            <i>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length}</i> mins to read on an
+            <i>{0.008 * text.split(/\s+/).filter((element)=>{return element.length!==0}).length}</i> mins to read on an
             average
           </p>
 
